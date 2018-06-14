@@ -1,0 +1,44 @@
+
+//Timer for javascript
+var myTimer = {};
+
+myTimer.count = 0;
+
+myTimer.sayCount = function(){
+  console.log(this.count++);
+};
+
+var id = setInterval(function(){
+  myTimer.sayCount();
+},500);
+
+setInterval(function(){
+  clearInterval(id)
+},
+1001);
+
+//Factory object for javascript
+
+var accountsStarting = 100;
+
+function varFactoryObject(initialBalance = 0){
+var accountCount = accountsStarting++;
+
+return {
+accNo: '${accountCount}';
+balance: initialBalance;
+transactions: [];
+
+withdraw(amount) {
+this.balance -= amount;
+this.transactions.push(-amount); 
+},
+
+deposit(amount){
+this.balance -= amount;
+this.transactions.push(amount);
+},
+
+};
+
+}
